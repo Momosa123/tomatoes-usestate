@@ -1,11 +1,13 @@
 import React, {useState} from "react"
 import './App.css';
+import Button from "./Button";
+import Tomatoe from "./Tomatoe";
 
 function App() {
   const [tomatoes, setTomatoes] = useState(0)
-  let emoji = ""
+  let tomatoemoji = ""
   for (let i = 0; i < tomatoes; i++){
-    emoji += "🍅"
+    tomatoemoji += "🍅"
   }
   function setPositiveTomatoe(){
     if(tomatoes >0){
@@ -16,17 +18,8 @@ function App() {
     <div className="App">
       <div className="window">
       <h2>Tomato Counter</h2>
-        <div className="tomato-box">
-          <h1>{emoji}</h1>
-        </div>
-          <div className="buttons-container">
-            <button className="button" onClick={()=>setTomatoes(tomatoe=>tomatoe+1)}>
-                Add 
-            </button>
-            <button className="button" onClick={()=>setPositiveTomatoe()}>
-                Remove 
-              </button>
-          </div>
+      <Tomatoe tomatoemoji={tomatoemoji}/>
+       <Button setPositiveTomatoe={setPositiveTomatoe} setTomatoes={setTomatoes}/>   
         
       </div>
     </div>
